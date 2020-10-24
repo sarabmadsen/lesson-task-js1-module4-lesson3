@@ -17,6 +17,7 @@ const url = "https://t9jt3myad3.execute-api.eu-west-2.amazonaws.com/api/breaking
 const idContainer = document.querySelector(".id");
 const detailContainer = document.querySelector(".details");
 
+// display the id in a different element to the rest of the properties
 idContainer.innerHTML = id;
 
 async function fetchCharacter() {
@@ -26,10 +27,11 @@ async function fetchCharacter() {
 
         console.log(details);
 
+        // pass the json to a function that will create the html
         createHtml(details);
     } catch (error) {
         console.log(error);
-        detailContainer.innerHTML = message("error", error);
+        detailContainer.innerHTML = error;
     }
 }
 
